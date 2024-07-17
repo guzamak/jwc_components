@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="h-[797px] w-screen bg-[#F2F0F1] flex -z-20 overflow-hidden">
-      <div className="w-full h-full flex-1 m-28 mr-0 space-y-5 relative">
-        <h1 className="font-DM text-[64px] font-bold  leading-tight">
+    <div className="h-[797px] w-screen bg-[#F2F0F1] flex -z-20 overflow-hidden justify-center">
+      <div className="w-[619.5] h-full  mr-0 space-y-7 relative flex flex-col justify-center ">
+        <h1 className="font-DM text-[64px] font-bold  leading-none">
           FIND CLOTHES <br /> THAT MATCHES <br />
           YOUR STYLE
         </h1>
@@ -14,27 +14,27 @@ export default function Hero() {
           designed to bring out your individuality and cater to your sense of
           style.
         </p>
-        <button className="font-inter bg-black px-[54px] py-[16px] rounded-[62px] text-[16px] text-white">
+        <button className="font-inter bg-black px-[54px] py-[16px] w-[210px] rounded-[62px] text-[16px] text-white ">
           Shop Now
         </button>
-        <div className="flex items-center pt-[25px]">
+        <div className="flex items-center text-[16px] font-inter ">
           <div>
-            <h1 className="font-inter text-[40px] font-bold">200+</h1>
-            <p>International Brands</p>
+            <h1 className="font-inter text-[40px] font-bold ">200+</h1>
+            <p className="opacity-60 ">International Brands</p>
           </div>
-          <div className="border-r-[2px] border-l-[2px] px-10 mx-10">
-            <h1 className="font-inter text-[40px] font-bold">2000+</h1>
-            <p>High-Quality Products</p>
+          <div className="border-r-[2px] border-l-[2px] px-10 mx-10 ">
+            <h1 className="font-inter text-[40px] font-bold ">2000+</h1>
+            <p className="opacity-60 ">High-Quality Products</p>
           </div>
           <div>
-            <h1 className="font-inter text-[40px] font-bold">30,000+</h1>
-            <p>Happy Customers</p>
+            <h1 className="font-inter text-[40px] font-bold ">30,000+</h1>
+            <p className="opacity-60 ">Happy Customers</p>
           </div>
         </div>
       </div>
-      <div className="w-full h-full relative overflow-x-visible flex-1">
+      <div className="w-[619.5px] h-full relative overflow-x-visible">
         <div>
-          <div className="w-full h-full absolute inset-0 flex items-center justify-center translate-y-[150px] translate-x-[-50px] -z-10 ">
+          <div className="w-full h-full absolute inset-0 flex items-center justify-center translate-y-[150px] -z-10 ">
             <svg
               width="56"
               height="56"

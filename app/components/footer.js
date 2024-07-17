@@ -22,7 +22,7 @@ export default function Footer() {
               />
             </svg>
             <input
-              className="text-[#00000066] border-none ring-0"
+              className="text-[#00000066] border-none outline-none"
               placeholder="Enter your email address"
             />
           </div>
@@ -169,8 +169,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="w-[75%] h-[1px] bg-[#000000] opacity-10"></div>
-        <div className="w-[1239px] text-[14px]  flex items-center justify-between">
+        <div className="w-[1239px]  h-[1px] bg-[#000000] opacity-10"></div>
+          <div className="w-[1239px] text-[14px]  flex items-center justify-between">
           <p className="opacity-60">JWC.CO © 2000-2023, All Rights Reserved</p>
             <span className="inline-flex">
             <svg
