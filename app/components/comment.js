@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-export default function Comment({ data, position, index }) {
+export default function Comment({ data, position, index ,prevPosition}) {
   const comment = useRef();
   const [isBlur, setIsBlur] = useState(false);
   const [haveChange, setHaveChange] = useState(false);
@@ -19,16 +19,25 @@ export default function Comment({ data, position, index }) {
   useEffect(() => {
     const left = comment.current.getBoundingClientRect().left;
     const right = comment.current.getBoundingClientRect().right;
-    if ((left <= -436 || right >= window.screen.width -436 ) && haveChange) {
-      setIsBlur(true);
-    } else {
-      setIsBlur(false);
+    if (position < prevPosition.current){
+      console.log("1")
+      if ((left <= 436 || right >= window.screen.width + 436 ) && haveChange) {
+        setIsBlur(true);
+      } else {
+        setIsBlur(false);
+      }
+    }else {
+      if ((left <= -436 || right >= window.screen.width - 436 ) && haveChange) {
+        setIsBlur(true);
+      } else {
+        setIsBlur(false);
+      }
     }
   }, [position]);
 
   return (
     <div
-      className={`w-[400px] h-[260px] border-2 rounded-[20px] px-[25px] py-[32px] space-y-[15px] duration-[25ms]
+      className={`w-[400px] h-[260px] border-2 rounded-[20px] px-[25px] py-[32px] space-y-[15px] duration-200 ease-in-out
     ${isBlur && "blur-sm"}
     `}
       ref={comment}
