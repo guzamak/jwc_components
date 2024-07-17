@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <div className="flex flex-col items-center mt-[12%] relative w-full ">
-      <div className="flex items-center justify-between py-[64px] px-[36px] bg-black w-[1440px] h-[177px] rounded-[20px] absolute top-[-20%] text-white">
+      <div className="flex items-center justify-between py-[64px] px-[36px] bg-black w-[1239px] h-[177px] rounded-[20px] absolute top-[-20%] text-white">
         <h1 className="text-[40px] font-DM font-bold leading-[1.05]">
           STAY UPTO DATE ABOUT <br />
           OUR LATEST OFFERS
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="w-full flex flex-col items-center justify-center bg-[#F0F0F0] h-[499px] gap-y-4 ">
-        <div className="w-[1440px] flex items-center justify-between  my-8">
+        <div className="w-[1239px] flex items-center justify-between  my-8">
           <div className="flex flex-col justify-center space-y-[32px]">
             <h1 className="text-[33.45px] font-bold font-DM pt-4">JWC.CO</h1>
             <p className="opacity-60 text-[14px]">
@@ -170,7 +170,7 @@ export default function Footer() {
         </div>
 
         <div className="w-[75%] h-[1px] bg-[#000000] opacity-10"></div>
-        <div className="w-[1444px] text-[14px]  flex items-center justify-between">
+        <div className="w-[1239px] text-[14px]  flex items-center justify-between">
           <p className="opacity-60">JWC.CO © 2000-2023, All Rights Reserved</p>
             <span className="inline-flex">
             <svg

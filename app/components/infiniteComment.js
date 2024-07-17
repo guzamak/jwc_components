@@ -86,7 +86,7 @@ export default function InfiniteComments() {
 
   return (
     <div className=" space-y-14 overflow-hidden flex flex-col items-center">
-      <div className=" flex justify-between items-center pt-20 pb-12 w-[1440px]">
+      <div className=" flex justify-between items-center pt-20 pb-12 w-[1239px]">
         <h1 className=" font-DM font-bold text-[48px] ">OUR HAPPY CUSTOMERS</h1>
         <span className="w-1/12 inline-flex gap-4">
           <svg
