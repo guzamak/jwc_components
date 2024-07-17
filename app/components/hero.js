@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div className="h-[797px] w-screen bg-[#F2F0F1] flex -z-20">
-      <div className="w-full h-full flex-1 m-32 mr-0 space-y-5">
+      <div className="w-full h-full flex-1 ml-16 mt-32 mr-0 space-y-5">
         <h1 className="font-DM text-[64px] font-bold  leading-tight">FIND CLOTHES <br/> THAT MATCHES <br/>YOUR STYLE</h1>
         <p className="font-inter text-[16px] opacity-60"> 
           Browse through our diverse range of meticulously crafted garments,
@@ -17,9 +17,9 @@ export default function Hero() {
             <h1 className="font-inter text-[40px] font-bold">200+</h1>
             <p>International Brands</p>
           </div>
-          <div className="border-r-[2px] border-l-[2px] px-14 mx-14" >
+          <div className="border-r-[2px] border-l-[2px] px-10 mx-10" >
             <h1 className="font-inter text-[40px] font-bold">2000+</h1>
-            <p>High-Quality Products</p>
+            <p >High-Quality Products</p>
           </div>
           <div>
             <h1 className="font-inter text-[40px] font-bold">30,000+</h1>
