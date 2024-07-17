@@ -1,33 +1,65 @@
-export default function Comment({data,position,index}) {
+"use client";
+import { useEffect, useRef, useState } from "react";
+export default function Comment({ data, position, index }) {
+  const comment = useRef();
+  const [isBlur, setIsBlur] = useState(false);
+  const [haveChange, setHaveChange] = useState(false);
+
+  useEffect(() => {
+    const left = comment.current.getBoundingClientRect().left;
+    const right = comment.current.getBoundingClientRect().right;
+    if (left <= 0 || right >= window.screen.width - 36) {
+      setIsBlur(true);
+    } else {
+      setIsBlur(false);
+    }
+    setHaveChange(true);
+  },[comment.current]);
+  
+  useEffect(() => {
+    const left = comment.current.getBoundingClientRect().left;
+    const right = comment.current.getBoundingClientRect().right;
+    if ((left <= -436 || right >= window.screen.width -436 ) && haveChange) {
+      setIsBlur(true);
+    } else {
+      setIsBlur(false);
+    }
+  }, [position]);
+
   return (
-    <div className="w-[400px] h-[260px] border-2 rounded-[20px] px-[25px] py-[32px] space-y-[15px] ">
-    <svg
-      width="139"
-      height="23"
-      viewBox="0 0 139 23"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      className={`w-[400px] h-[260px] border-2 rounded-[20px] px-[25px] py-[32px] space-y-[15px] duration-[25ms]
+    ${isBlur && "blur-sm"}
+    `}
+      ref={comment}
     >
-      <path
-        d="M11.2895 0L14.4879 6.8872L22.0264 7.80085L16.4647 12.971L17.9253 20.4229L11.2895 16.731L4.6537 20.4229L6.11428 12.971L0.552547 7.80085L8.09104 6.8872L11.2895 0Z"
-        fill="#FFC633"
-      />
-      <path
-        d="M40.3553 0L43.5537 6.8872L51.0922 7.80085L45.5305 12.971L46.9911 20.4229L40.3553 16.731L33.7195 20.4229L35.1801 12.971L29.6183 7.80085L37.1568 6.8872L40.3553 0Z"
-        fill="#FFC633"
-      />
-      <path
-        d="M69.421 0L72.6195 6.8872L80.158 7.80085L74.5962 12.971L76.0568 20.4229L69.421 16.731L62.7852 20.4229L64.2458 12.971L58.6841 7.80085L66.2226 6.8872L69.421 0Z"
-        fill="#FFC633"
-      />
-      <path
-        d="M98.4868 0L101.685 6.8872L109.224 7.80085L103.662 12.971L105.123 20.4229L98.4868 16.731L91.851 20.4229L93.3116 12.971L87.7498 7.80085L95.2883 6.8872L98.4868 0Z"
-        fill="#FFC633"
-      />
-      <path
-        d="M127.553 0L130.751 6.8872L138.289 7.80085L132.728 12.971L134.188 20.4229L127.553 16.731L120.917 20.4229L122.377 12.971L116.816 7.80085L124.354 6.8872L127.553 0Z"
-        fill="#FFC633"
-      />
+      <svg
+        width="139"
+        height="23"
+        viewBox="0 0 139 23"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.2895 0L14.4879 6.8872L22.0264 7.80085L16.4647 12.971L17.9253 20.4229L11.2895 16.731L4.6537 20.4229L6.11428 12.971L0.552547 7.80085L8.09104 6.8872L11.2895 0Z"
+          fill="#FFC633"
+        />
+        <path
+          d="M40.3553 0L43.5537 6.8872L51.0922 7.80085L45.5305 12.971L46.9911 20.4229L40.3553 16.731L33.7195 20.4229L35.1801 12.971L29.6183 7.80085L37.1568 6.8872L40.3553 0Z"
+          fill="#FFC633"
+        />
+        <path
+          d="M69.421 0L72.6195 6.8872L80.158 7.80085L74.5962 12.971L76.0568 20.4229L69.421 16.731L62.7852 20.4229L64.2458 12.971L58.6841 7.80085L66.2226 6.8872L69.421 0Z"
+          fill="#FFC633"
+        />
+        <path
+          d="M98.4868 0L101.685 6.8872L109.224 7.80085L103.662 12.971L105.123 20.4229L98.4868 16.731L91.851 20.4229L93.3116 12.971L87.7498 7.80085L95.2883 6.8872L98.4868 0Z"
+          fill="#FFC633"
+        />
+        <path
+          d="M127.553 0L130.751 6.8872L138.289 7.80085L132.728 12.971L134.188 20.4229L127.553 16.731L120.917 20.4229L122.377 12.971L116.816 7.80085L124.354 6.8872L127.553 0Z"
+          fill="#FFC633"
+        />
       </svg>
       <div className="flex space-x-[4px]">
         <p className="font-inter font-bold text-[20px]">{data.name}</p>
@@ -44,9 +76,7 @@ export default function Comment({data,position,index}) {
           />
         </svg>
       </div>
-      <p className="font-inter text-[16px] opacity-60 ">
-        {data.data}
-      </p>
-      </div>
+      <p className="font-inter text-[16px] opacity-60 ">{data.data}</p>
+    </div>
   );
 }

@@ -6,14 +6,14 @@ export default function InfiniteComments() {
   const [ChangePosition,setChangePosition] = useState(true);
   const prevPosition = useRef(0);
   const plusPosition = () => {
-    if (ChangePosition){
+    if (ChangePosition ){
       setPosition(position + 1);
       prevPosition.current = position;
       setChangePosition(false);
     }
   };
   const minusPosition = () => {
-    if (ChangePosition){
+    if (ChangePosition ){
       setPosition(position - 1);
       prevPosition.current = position;
       setChangePosition(false);
@@ -84,6 +84,7 @@ export default function InfiniteComments() {
     },1000)
   }
 
+
   return (
     <div className=" space-y-14 overflow-hidden flex flex-col items-center">
       <div className=" flex justify-between items-center pt-20 pb-12 w-[1239px]">
@@ -125,19 +126,19 @@ export default function InfiniteComments() {
         <span className="gap-x-[36px] inline-flex" ref={com1}
         style={{transform: `translateX(${0}px)`}}>
         {cusData.map((cus, index) => (
-          <Comment data={cus} position={position} index={index} key={index}/>
+          <Comment data={cus} position={position} index={index}  key={index}  />
         ))}
         </span>
         <span className="gap-x-[36px] inline-flex" ref={com2}
         style={{transform: `translateX(${0}px)`}}>
         {cusData.map((cus, index) => (
-          <Comment data={cus} position={position} index={index} key={index}/>
+          <Comment data={cus} position={position} index={index}  key={index}   />
         ))}
         </span>
         <span className="gap-x-[36px] inline-flex bg-blue-600-" ref={com3}
         style={{transform: `translateX(${0}px)`}}>
         {cusData.map((cus, index) => (
-          <Comment data={cus} position={position} index={index} key={index}/>
+          <Comment data={cus} position={position} index={index} key={index}  />
         ))}
         </span>
       </span>

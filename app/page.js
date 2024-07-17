@@ -7,7 +7,7 @@ import Nav from "./components/nav";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center overflow-hidden">
       <Nav/>
       <Hero />
       <Scroll/>
