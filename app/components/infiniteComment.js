@@ -48,7 +48,6 @@ export default function InfiniteComments() {
     const com1Right = com1.current.getBoundingClientRect().right;
     const com2Right = com2.current.getBoundingClientRect().right;
     const com3Right = com3.current.getBoundingClientRect().right;
-    console.log(com1Left,com2Left,com3Left,com1Right,com2Right,com3Right)
     const comLeft = [com1Left, com2Left, com3Left];
     const comRight = [com1Right, com2Right, com3Right];
 

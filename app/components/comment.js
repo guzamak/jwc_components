@@ -20,7 +20,6 @@ export default function Comment({ data, position, index ,prevPosition}) {
     const left = comment.current.getBoundingClientRect().left;
     const right = comment.current.getBoundingClientRect().right;
     if (position < prevPosition.current){
-      console.log("1")
       if ((left <= 436 || right >= window.screen.width + 436 ) && haveChange) {
         setIsBlur(true);
       } else {
