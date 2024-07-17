@@ -1,19 +1,19 @@
 "use client";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState,useCallback } from "react";
 import Comment from "./comment";
 export default function InfiniteComments() {
   const [position, setPosition] = useState(-2);
-  const [ChangePosition, setChangePosition] = useState(true);
+  const [ChangePosition,setChangePosition] = useState(true);
   const prevPosition = useRef(0);
   const plusPosition = () => {
-    if (ChangePosition) {
+    if (ChangePosition){
       setPosition(position + 1);
       prevPosition.current = position;
       setChangePosition(false);
     }
   };
   const minusPosition = () => {
-    if (ChangePosition) {
+    if (ChangePosition){
       setPosition(position - 1);
       prevPosition.current = position;
       setChangePosition(false);
@@ -48,7 +48,7 @@ export default function InfiniteComments() {
     const com1Right = com1.current.getBoundingClientRect().right;
     const com2Right = com2.current.getBoundingClientRect().right;
     const com3Right = com3.current.getBoundingClientRect().right;
-    console.log(com1Left, com2Left, com3Left, com1Right, com2Right, com3Right);
+    console.log(com1Left,com2Left,com3Left,com1Right,com2Right,com3Right)
     const comLeft = [com1Left, com2Left, com3Left];
     const comRight = [com1Right, com2Right, com3Right];
 
@@ -58,58 +58,34 @@ export default function InfiniteComments() {
 
     if (position < prevPosition.current) {
       if (com1Right <= com2Left && com1Right <= 0) {
-        const currentTranslateX = parseFloat(
-          com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]
-        );
-        com1.current.style.transform = `translateX(${
-          currentTranslateX + comRight[2] + Math.abs(com1Left) + 36
-        }px)`;
+        const currentTranslateX = parseFloat(com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]);
+        com1.current.style.transform = `translateX(${currentTranslateX + comRight[2] + Math.abs(com1Left) +36}px)`;
       } else if (com2Right <= com3Left && com2Right <= 0) {
-        const currentTranslateX = parseFloat(
-          com2.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]
-        );
-        com2.current.style.transform = `translateX(${
-          currentTranslateX + comRight[2] + Math.abs(com2Left) + 36
-        }px)`;
+        const currentTranslateX = parseFloat(com2.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]);
+        com2.current.style.transform = `translateX(${currentTranslateX + comRight[2] + Math.abs(com2Left) +36}px)`;
       } else if (com3Right <= com1Left && com3Right <= 0) {
-        const currentTranslateX = parseFloat(
-          com3.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]
-        );
-        com3.current.style.transform = `translateX(${
-          currentTranslateX + comRight[2] + Math.abs(com3Left) + 36
-        }px)`;
+        const currentTranslateX = parseFloat(com3.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]);
+        com3.current.style.transform = `translateX(${currentTranslateX + comRight[2] + Math.abs(com3Left) + 36}px)`;
       }
-    } else {
+    } else {        
       if (com1Left >= com2Right && com1Left >= window.screen.width) {
-        const currentTranslateX = parseFloat(
-          com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]
-        );
-        com1.current.style.transform = `translateX(${
-          currentTranslateX + comLeft[0] - Math.abs(com1Right) - 36
-        }px)`;
-      } else if (com2Left >= com3Right && com2Left >= window.screen.width) {
-        const currentTranslateX = parseFloat(
-          com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]
-        );
-        com2.current.style.transform = `translateX(${
-          currentTranslateX + comLeft[0] - Math.abs(com2Right) - 36
-        }px)`;
+        const currentTranslateX = parseFloat(com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]);
+        com1.current.style.transform = `translateX(${ currentTranslateX + comLeft[0] - Math.abs(com1Right) - 36}px)`;
+      } else if (com2Left >= com3Right  && com2Left >= window.screen.width) {
+        const currentTranslateX = parseFloat(com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]);
+        com2.current.style.transform = `translateX(${ currentTranslateX + comLeft[0] - Math.abs(com2Right)  - 36}px)`;
       } else if (com3Left >= com1Right && com3Left >= window.screen.width) {
-        const currentTranslateX = parseFloat(
-          com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]
-        );
-        com3.current.style.transform = `translateX(${
-          currentTranslateX + comLeft[0] - Math.abs(com3Right) - 36
-        }px)`;
+        const currentTranslateX = parseFloat(com1.current.style.transform.match(/translateX\(([-\d.]+)px\)/)[1]);
+        com3.current.style.transform = `translateX(${ currentTranslateX + comLeft[0] - Math.abs(com3Right) -36 }px)`;
       }
     }
     setTimeout(() => {
       setChangePosition(true);
-    }, 1000);
-  };
+    },1000)
+  }
 
   return (
-    <div className=" space-y-14  flex flex-col items-center">
+    <div className=" space-y-14 overflow-hidden flex flex-col items-center">
       <div className=" flex justify-between items-center pt-20 pb-12 w-[1239px]">
         <h1 className=" font-DM font-bold text-[48px] ">OUR HAPPY CUSTOMERS</h1>
         <span className="w-1/12 inline-flex gap-4">
@@ -143,39 +119,29 @@ export default function InfiniteComments() {
       </div>
 
       <span
-        className="inline-flex  duration-500 gap-x-[36px] relative"
-        style={{ transform: `translateX(${436 * position}px)` }}
-        onTransitionEnd={positionChange}
-      >
-        <span
-          className="gap-x-[36px] inline-flex"
-          ref={com1}
-          style={{ transform: `translateX(${0}px)` }}
-        >
-          {cusData.map((cus, index) => (
-            <Comment data={cus} position={position} index={index} key={index} />
-          ))}
+        className="inline-flex  duration-500 gap-x-[36px] "
+        style={{transform: `translateX(${436 * position}px)`}}
+        onTransitionEnd={positionChange}>
+        <span className="gap-x-[36px] inline-flex" ref={com1}
+        style={{transform: `translateX(${0}px)`}}>
+        {cusData.map((cus, index) => (
+          <Comment data={cus} position={position} index={index} key={index}/>
+        ))}
         </span>
-        <span
-          className="gap-x-[36px] inline-flex"
-          ref={com2}
-          style={{ transform: `translateX(${0}px)` }}
-        >
-          {cusData.map((cus, index) => (
-            <Comment data={cus} position={position} index={index} key={index} />
-          ))}
+        <span className="gap-x-[36px] inline-flex" ref={com2}
+        style={{transform: `translateX(${0}px)`}}>
+        {cusData.map((cus, index) => (
+          <Comment data={cus} position={position} index={index} key={index}/>
+        ))}
         </span>
-        <span
-          className="gap-x-[36px] inline-flex bg-blue-600-"
-          ref={com3}
-          style={{ transform: `translateX(${0}px)` }}
-        >
-          {cusData.map((cus, index) => (
-            <Comment data={cus} position={position} index={index} key={index} />
-          ))}
+        <span className="gap-x-[36px] inline-flex bg-blue-600-" ref={com3}
+        style={{transform: `translateX(${0}px)`}}>
+        {cusData.map((cus, index) => (
+          <Comment data={cus} position={position} index={index} key={index}/>
+        ))}
         </span>
       </span>
-
+      
     </div>
   );
 }
