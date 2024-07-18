@@ -9,7 +9,7 @@ export default function Banner() {
         },100)
     },[banner.current])
   return (
-    <div className="w-screen bg-black h-[0px] fixed flex items-center justify-center text-white z-50 duration-200" ref={banner}>
+    <div className="w-screen bg-black h-[0px] fixed flex items-center justify-center text-white z-50 duration-200 overflow-hidden" ref={banner}>
       <div className="relative flex w-[1239px] justify-center">
         <span>Sign up and get 20% off to your first order. </span>{" "}
         <span className="underline"> Sign up Now</span>
