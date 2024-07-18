@@ -125,19 +125,19 @@ export default function InfiniteComments() {
         <span className="gap-x-[36px] inline-flex" ref={com1}
         style={{transform: `translateX(${0}px)`}}>
         {cusData.map((cus, index) => (
-          <Comment data={cus} position={position} index={index}  key={index} prevPosition={prevPosition} />
+          <Comment data={cus} position={position} index={index}  key={index} prevPosition={prevPosition} ChangePosition={ChangePosition}/>
         ))}
         </span>
         <span className="gap-x-[36px] inline-flex" ref={com2}
         style={{transform: `translateX(${0}px)`}}>
         {cusData.map((cus, index) => (
-          <Comment data={cus} position={position} index={index}  key={index}  prevPosition={prevPosition}  />
+          <Comment data={cus} position={position} index={index}  key={index}  prevPosition={prevPosition}  ChangePosition={ChangePosition}/>
         ))}
         </span>
         <span className="gap-x-[36px] inline-flex bg-blue-600-" ref={com3}
         style={{transform: `translateX(${0}px)`}}>
         {cusData.map((cus, index) => (
-          <Comment data={cus} position={position} index={index} key={index}  prevPosition={prevPosition} />
+          <Comment data={cus} position={position} index={index} key={index}  prevPosition={prevPosition} ChangePosition={ChangePosition}/>
         ))}
         </span>
       </span>

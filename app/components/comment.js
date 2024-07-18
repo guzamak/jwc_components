@@ -5,7 +5,7 @@ export default function Comment({ data, position, index ,prevPosition}) {
   const [isBlur, setIsBlur] = useState(false);
   const [haveChange, setHaveChange] = useState(false);
 
-  useEffect(() => {
+  const setup = () => {
     const left = comment.current.getBoundingClientRect().left;
     const right = comment.current.getBoundingClientRect().right;
     if (left <= 0 || right >= window.screen.width - 36) {
@@ -13,6 +13,10 @@ export default function Comment({ data, position, index ,prevPosition}) {
     } else {
       setIsBlur(false);
     }
+  };
+
+  useEffect(() => {
+    setup();
     setHaveChange(true);
   },[comment.current]);
   
@@ -32,6 +36,10 @@ export default function Comment({ data, position, index ,prevPosition}) {
         setIsBlur(false);
       }
     }
+
+    setTimeout(() => {
+      setup();
+    }, 500);
   }, [position]);
 
   return (
