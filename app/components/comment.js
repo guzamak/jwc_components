@@ -44,7 +44,7 @@ export default function Comment({ data, position, index ,prevPosition}) {
 
   return (
     <div
-      className={`w-[400px] h-[260px] border-2 rounded-[20px] px-[25px] py-[32px] space-y-[15px] duration-200 ease-in-out
+      className={`w-[400px] h-[260px] border-2 rounded-[20px] px-[25px] py-[32px] space-y-[15px] duration-200 ease-in-out z-[-10]
     ${isBlur && "blur-sm"}
     `}
       ref={comment}
